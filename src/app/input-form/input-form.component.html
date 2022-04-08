@@ -1,0 +1,43 @@
+<form [formGroup]="inputFormGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <br />
+    <input
+      type="text"
+      name="name"
+      id="name"
+      formControlName="name"
+      placeholder="Enter name"
+    />
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <br />
+    <input type="number" name="age" id="age" formControlName="age" />
+  </div>
+  <div>
+    <label for="country">Where do you live:</label>
+    <br />
+    <select name="country" id="country" formControlName="country">
+      <option *ngFor="let country of countries" [value]="country.country">
+        {{ country.label }}
+      </option>
+    </select>
+  </div>
+  <div *ngFor="let p of this.packages">
+    <input
+      type="radio"
+      name="package"
+      id="package"
+      formControlName="package"
+      [value]="p.multiplier"
+    />
+    <label for="package"> {{ p.packageName }} ({{ getLabelValue(p) }}) </label>
+  </div>
+  <div>
+    <p>Your premium is: {{ this.premium }}</p>
+  </div>
+  <button [routerLink]="['/home']">Back</button>
+  <br />
+  <button type="submit">Next</button>
+</form>

@@ -1,0 +1,9 @@
+<h1>Summary</h1>
+<p>Name: {{ this.name }}</p>
+<p>Age: {{ this.age }}</p>
+<p>Country: {{ this.country }}</p>
+<p>Package: {{ this.packageName }}</p>
+<p>Premium: {{ this.currencyLabel }} {{ this.premium }}</p>
+<button [routerLink]="['/form']">Back</button>
+<br>
+<button (click)="onBuy()">Buy</button>
